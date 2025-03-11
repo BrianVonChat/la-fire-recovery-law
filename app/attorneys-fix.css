@@ -1,0 +1,13 @@
+/* Fix for attorney names on mobile */
+.AttorneysSection h3 {
+  color: #1e293b !important; /* text-gray-900 */
+}
+.AttorneysSection .bg-white {
+  background-color: white !important;
+}
+
+/* Fix for Contact Us page text on blue background */
+.bg-primary-700.text-white p {
+  color: white !important;
+  opacity: 1 !important;
+}

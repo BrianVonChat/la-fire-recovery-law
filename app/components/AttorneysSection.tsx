@@ -29,10 +29,10 @@ const AttorneysSection = () => {
   ];
 
   return (
-    <section className="pt-8 pb-16 bg-gray-50">
+    <section className="pt-8 pb-16 bg-gray-50 AttorneysSection">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Attorneys</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Meet Our Attorneys</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our experienced legal team is dedicated to helping you recover what you've lost in the recent Los Angeles fires.
           </p>
@@ -52,10 +52,10 @@ const AttorneysSection = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 500px"
                 />
               </div>
-              <div className="lg:w-1/2 p-6 lg:p-6">
+              <div className="lg:w-1/2 p-6 lg:p-6 bg-white">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-2xl font-bold mb-1">{attorney.name}</h3>
+                    <h3 className="text-2xl font-bold mb-1 text-gray-900">{attorney.name}</h3>
                     <p className="text-primary-600 font-medium mb-3">{attorney.title}</p>
                   </div>
                   <a 
