@@ -11,3 +11,18 @@
   color: white !important;
   opacity: 1 !important;
 }
+
+/* Fix for section headers on mobile */
+.text-fire-700 {
+  color: #f95d31 !important; /* fire-500 */
+}
+
+/* Ensure white text is visible on colored backgrounds */
+.text-white {
+  color: white !important;
+}
+
+/* Fix for section titles that might be using primary-text classes */
+p.tracking-wide.uppercase {
+  color: #f95d31 !important; /* fire-500 */
+}
