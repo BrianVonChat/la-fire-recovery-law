@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
-import QuickIntakeForm from '../components/QuickIntakeForm';
+import SuspenseQuickIntakeForm from '../components/SuspenseQuickIntakeForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaUtensils, FaArrowRight, FaStore, FaChartLine, FaClipboardCheck, FaCoins } from 'react-icons/fa';
@@ -225,7 +225,7 @@ export default function RestaurantBarLossOfIncomeFireClaimsPage() {
                   <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                     Fill out this form to start the process of recovering your restaurant or bar's losses.
                   </p>
-                  <QuickIntakeForm />
+                  <SuspenseQuickIntakeForm />
                 </div>
                 
                 <div className="bg-gradient-to-br from-fire-50 to-fire-100 rounded-2xl border border-fire-200 p-8 shadow-lg">

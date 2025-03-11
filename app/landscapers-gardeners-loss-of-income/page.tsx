@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
-import QuickIntakeForm from '../components/QuickIntakeForm';
+import SuspenseQuickIntakeForm from '../components/SuspenseQuickIntakeForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaTree, FaArrowRight, FaFileContract, FaMoneyBillWave, FaTools, FaHandHoldingUsd } from 'react-icons/fa';
@@ -186,7 +186,7 @@ export default function LandscapersGardenersLossOfIncomePage() {
                   <p className="text-gray-600 mb-6">
                     Let us help you restore your operations and secure your livelihood. Contact us today.
                   </p>
-                  <QuickIntakeForm />
+                  <SuspenseQuickIntakeForm />
                 </div>
                 
                 <div className="bg-fire-50 rounded-xl border border-fire-100 p-8">
