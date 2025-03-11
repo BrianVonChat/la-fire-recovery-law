@@ -6,7 +6,7 @@ import AttorneysSection from './components/AttorneysSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import RecentFiresSection from './components/RecentFiresSection';
 import ContactForm from './components/ContactForm';
-import QuickIntakeForm from './components/QuickIntakeForm';
+import SuspenseQuickIntakeForm from './components/SuspenseQuickIntakeForm';
 import FindLegalHelpSection from './components/FindLegalHelpSection';
 import Link from 'next/link';
 import { FaPhone, FaComments, FaFireAlt, FaBalanceScale, FaShieldAlt, FaUsers } from 'react-icons/fa';
@@ -24,7 +24,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1">
-              <QuickIntakeForm />
+              <SuspenseQuickIntakeForm />
             </div>
             
             <div className="lg:col-span-2">
@@ -41,8 +41,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Immediate Response</h3>
-                    <p className="text-gray-600">We respond to your inquiry within 24 hours</p>
+                    <h3 className="text-lg font-semibold">Quick Response</h3>
+                    <p className="text-gray-600">We respond to all inquiries within 24 hours.</p>
                   </div>
                 </div>
                 
@@ -53,8 +53,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Free Consultation</h3>
-                    <p className="text-gray-600">No cost evaluation of your claim</p>
+                    <h3 className="text-lg font-semibold">Expert Advice</h3>
+                    <p className="text-gray-600">Specialized in fire damage claims and litigation.</p>
                   </div>
                 </div>
                 
@@ -65,8 +65,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">No Fee Guarantee</h3>
-                    <p className="text-gray-600">You don't pay unless we win</p>
+                    <h3 className="text-lg font-semibold">No Fee Unless We Win</h3>
+                    <p className="text-gray-600">We only get paid when you get compensated.</p>
                   </div>
                 </div>
               </div>
