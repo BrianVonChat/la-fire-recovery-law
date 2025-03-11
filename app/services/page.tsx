@@ -248,8 +248,55 @@ export default function ServicesPage() {
       </div>
       
       {/* Main Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Comprehensive Fire Recovery Services</h2>
+            <p className="text-lg text-gray-600">
+              We offer a full range of legal services to help victims of the Los Angeles wildfires. Our experienced team will guide you through every step of the recovery process.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {mainServices.map((service) => (
+              <div 
+                key={service.id} 
+                id={service.title.toLowerCase().replace(/\s+/g, '-')}
+                className="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden transition-all hover:shadow-xl border border-gray-100"
+              >
+                <div className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-primary-50 p-4 rounded-lg mr-6">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold">{service.title}</h3>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  
+                  <ul className="space-y-2 mb-8">
+                    {service.benefits.map((benefit, index) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-gray-700">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Link 
+                    href={service.link}
+                    className="inline-flex items-center text-primary-600 font-medium hover:text-primary-800 transition-colors"
+                  >
+                    Learn More
+                    <FaArrowRight className="ml-2 text-sm group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          
           <div className="text-center mb-16">
             <p className="text-fire-700 font-medium mb-3 tracking-wide uppercase">Our Expertise</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Core Legal Services</h2>
@@ -262,7 +309,8 @@ export default function ServicesPage() {
           <div className="space-y-12">
             {mainServices.map((service) => (
               <div 
-                key={service.id} 
+                key={service.id}
+                id={`section-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                 className="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

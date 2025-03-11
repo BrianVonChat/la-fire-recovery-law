@@ -85,25 +85,25 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/services/business-loss" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <Link href="/services#business-loss-recovery" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></span>
                   Business Loss Recovery
                 </Link>
               </li>
               <li>
-                <Link href="/services/personal-injury" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <Link href="/services#personal-injury" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></span>
                   Personal Injury
                 </Link>
               </li>
               <li>
-                <Link href="/services/property-damage" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <Link href="/services#property-damage" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></span>
                   Property Damage
                 </Link>
               </li>
               <li>
-                <Link href="/services/loss-of-income" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                <Link href="/services#loss-of-income" className="text-gray-400 hover:text-white transition-colors flex items-center">
                   <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></span>
                   Loss of Income
                 </Link>
