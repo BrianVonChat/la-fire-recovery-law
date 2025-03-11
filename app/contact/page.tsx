@@ -2,11 +2,27 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import IntakeForm from '../components/IntakeForm';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { Suspense } from 'react';
 
 export const metadata = {
   title: 'Contact Us | LA Fire Recovery Law',
   description: 'Contact LA Fire Recovery Law for expert legal assistance with fire insurance claims, loss of income, and personal injury cases. Free consultations available.',
 };
+
+// Loading component for Suspense fallback
+function FormLoading() {
+  return (
+    <div className="p-8 rounded-lg bg-white shadow-md">
+      <div className="animate-pulse space-y-4">
+        <div className="h-6 bg-gray-200 rounded w-3/4 mb-6"></div>
+        <div className="h-10 bg-gray-200 rounded mb-4"></div>
+        <div className="h-10 bg-gray-200 rounded mb-4"></div>
+        <div className="h-10 bg-gray-200 rounded mb-4"></div>
+        <div className="h-10 bg-gray-200 rounded"></div>
+      </div>
+    </div>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -75,7 +91,9 @@ export default function ContactPage() {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <IntakeForm />
+            <Suspense fallback={<FormLoading />}>
+              <IntakeForm />
+            </Suspense>
           </div>
         </div>
       </section>
