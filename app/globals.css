@@ -80,4 +80,17 @@ body {
   .card {
     @apply bg-white rounded-xl shadow-card border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg;
   }
+}
+
+/* Essential fixes for text visibility */
+.AttorneysSection h3 {
+  color: #1e293b !important;
+}
+
+.bg-primary-700.text-white p {
+  color: white !important;
+}
+
+.bg-gray-900 a {
+  color: #67b5ff !important;
 } 

@@ -1,5 +1,4 @@
 import './globals.css';
-import './attorneys-fix.css';
 import type { Metadata } from 'next';
 import { Montserrat, Inter } from 'next/font/google';
 
