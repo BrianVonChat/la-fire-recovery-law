@@ -26,3 +26,34 @@
 p.tracking-wide.uppercase {
   color: #f95d31 !important; /* fire-500 */
 }
+
+/* Force dark text on light backgrounds for mobile */
+@media (max-width: 767px) {
+  p, h1, h2, h3, h4, h5, h6, span, div {
+    color: #1e293b !important; /* dark gray */
+  }
+  
+  /* Specific exceptions for elements that should remain white */
+  .bg-primary-700 p, 
+  .bg-primary-900 p,
+  .bg-gray-900 p,
+  .bg-primary-700 h1, 
+  .bg-primary-900 h1,
+  .bg-gray-900 h1,
+  .bg-primary-700 h2, 
+  .bg-primary-900 h2,
+  .bg-gray-900 h2,
+  .bg-primary-700 span, 
+  .bg-primary-900 span,
+  .bg-gray-900 span,
+  .btn-fire,
+  .btn-primary,
+  .bg-fire-600 {
+    color: white !important;
+  }
+}
+
+/* Direct fix for the Hero section features */
+.bg-white p, .bg-gray-50 p, .bg-gray-100 p {
+  color: #1e293b !important; /* dark gray */
+}
