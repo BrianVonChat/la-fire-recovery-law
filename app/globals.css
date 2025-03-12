@@ -93,4 +93,22 @@ body {
 
 .bg-gray-900 a {
   color: #67b5ff !important;
+}
+
+/* Fix for About Us page text on mobile */
+@media (max-width: 767px) {
+  #michael-dicks p, 
+  #james-dicks p {
+    color: #1e293b !important; /* dark gray for better visibility */
+    opacity: 1 !important;
+  }
+  
+  .prose p, .prose li {
+    color: #1e293b !important;
+    opacity: 1 !important;
+  }
+  
+  .bg-gray-50 p {
+    color: #1e293b !important;
+  }
 } 
