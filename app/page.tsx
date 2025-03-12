@@ -41,7 +41,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Quick Response</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Quick Response</h3>
                     <p className="text-gray-600">We respond to all inquiries within 24 hours.</p>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Expert Advice</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Expert Advice</h3>
                     <p className="text-gray-600">Specialized in fire damage claims and litigation.</p>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">No Fee Unless We Win</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">No Fee Unless We Win</h3>
                     <p className="text-gray-600">We only get paid when you get compensated.</p>
                   </div>
                 </div>

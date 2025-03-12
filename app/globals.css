@@ -111,4 +111,22 @@ body {
   .bg-gray-50 p {
     color: #1e293b !important;
   }
+
+  /* Fix for home page feature section headers */
+  section.bg-gray-50 .flex .ml-4 h3 {
+    color: #1e293b !important;
+    opacity: 1 !important;
+    display: block !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.125rem !important;
+    visibility: visible !important;
+  }
+  
+  /* Ensure all feature section headings are visible */
+  .flex .ml-4 h3 {
+    color: #1e293b !important; 
+    display: block !important;
+    visibility: visible !important;
+  }
 } 
