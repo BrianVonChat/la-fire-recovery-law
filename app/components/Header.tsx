@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaPhone, FaBars, FaTimes } from 'react-icons/fa';
+import { FaPhone, FaBars, FaTimes, FaClock } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,6 +50,9 @@ const Header = () => {
             </Link>
             <Link href="/services" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Services
+            </Link>
+            <Link href="/#deadlines" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Deadlines
             </Link>
             <Link href="/resources" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Resources
@@ -107,6 +110,16 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
+              </Link>
+              <Link 
+                href="/#deadlines" 
+                className="text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span className="flex items-center">
+                  <FaClock className="mr-2 text-fire-600" />
+                  Important Deadlines
+                </span>
               </Link>
               <Link 
                 href="/resources" 

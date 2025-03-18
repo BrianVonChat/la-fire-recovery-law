@@ -8,6 +8,7 @@ import RecentFiresSection from './components/RecentFiresSection';
 import ContactForm from './components/ContactForm';
 import SuspenseQuickIntakeForm from './components/SuspenseQuickIntakeForm';
 import FindLegalHelpSection from './components/FindLegalHelpSection';
+import DeadlinesSection from './components/DeadlinesSection';
 import Link from 'next/link';
 import { FaPhone, FaComments, FaFireAlt, FaBalanceScale, FaShieldAlt, FaUsers } from 'react-icons/fa';
 
@@ -90,8 +91,11 @@ export default function Home() {
       {/* Landing Pages Section - Using our new component */}
       <FindLegalHelpSection />
       
+      {/* Deadlines Section */}
+      <DeadlinesSection />
+      
       {/* Contact Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100" id="contact">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us Today</h2>
