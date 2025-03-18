@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { FaLinkedin, FaEnvelope, FaPhone, FaArrowRight } from 'react-icons/fa';
 
 export const metadata = {
-  title: 'About Our Fire Recovery Attorneys | LA Fire Recovery Law',
-  description: "Meet our experienced team of attorneys dedicated to helping victims of Los Angeles fires recover what they've lost through insurance claims and legal representation.",
-  keywords: 'fire recovery attorneys, los angeles fire lawyers, insurance claim lawyers, Michael Dicks, James Dicks, fire damage legal team',
+  title: 'About Our Fire Recovery Attorney | LA Fire Recovery Law',
+  description: "Meet our experienced attorney dedicated to helping victims of Los Angeles fires recover what they've lost through insurance claims and legal representation.",
+  keywords: 'fire recovery attorney, los angeles fire lawyer, insurance claim lawyer, James Dicks, fire damage legal team',
 };
 
 export default function AboutPage() {
@@ -27,108 +27,14 @@ export default function AboutPage() {
             </p>
             <div className="h-1 w-24 bg-fire-500 mb-8"></div>
             <p className="text-gray-200 mb-6">
-              At LA Fire Recovery Law, we combine extensive legal expertise with compassion and a deep understanding of the challenges faced by fire victims. Our attorneys have successfully recovered millions of dollars for clients, helping them rebuild their lives after devastating losses.
+              At LA Fire Recovery Law, we combine extensive legal expertise with compassion and a deep understanding of the challenges faced by fire victims. Our attorney has successfully recovered millions of dollars for clients, helping them rebuild their lives after devastating losses.
             </p>
           </div>
         </div>
       </div>
       
-      {/* Attorney Profile: Michael Dicks */}
-      <section className="py-20 bg-white" id="michael-dicks">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <div className="relative aspect-[3/4] w-full rounded-lg shadow-xl overflow-hidden mb-6">
-                  <Image 
-                    src="https://firebasestorage.googleapis.com/v0/b/fire-protection-attorneys.firebasestorage.app/o/fire_recovery_attorney_mdicks.png?alt=media&token=9f6f5362-f96f-4e2b-b98f-df3dcbd21ec8"
-                    alt="Michael Dicks - Senior Trial Attorney"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                  <h3 className="text-xl font-bold mb-1">Michael Dicks</h3>
-                  <p className="text-primary-600 font-medium mb-4">Senior Trial Attorney, Hoffman & Forde</p>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center">
-                      <div className="w-8 text-gray-400"><FaEnvelope /></div>
-                      <a href="mailto:mdicks@legalteam.com" className="text-gray-700 hover:text-primary-600 transition-colors">
-                        mdicks@legalteam.com
-                      </a>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-8 text-gray-400"><FaPhone /></div>
-                      <a href="tel:+1800FIRELAW" className="text-gray-700 hover:text-primary-600 transition-colors">
-                        1-800-FIRE-LAW
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="pt-4 border-t border-gray-200">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="bg-primary-100 text-primary-800 text-sm px-3 py-1 rounded-full">
-                        Insurance Law
-                      </span>
-                      <span className="bg-primary-100 text-primary-800 text-sm px-3 py-1 rounded-full">
-                        HOA Law
-                      </span>
-                      <span className="bg-primary-100 text-primary-800 text-sm px-3 py-1 rounded-full">
-                        Property Damage
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="lg:col-span-2">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Michael Dicks</h2>
-              <p className="text-lg text-gray-600 font-medium mb-8">
-                Senior Trial Attorney, Hoffman & Forde
-              </p>
-              
-              <div className="prose prose-lg max-w-none">
-                <p>
-                  Michael Dicks is a seasoned trial attorney with over 30 years of experience in civil litigation, specializing in insurance disputes, homeowners association (HOA) law, property damage claims, and personal injury matters. Based in Southern California, he has dedicated much of his career to helping homeowners and communities recover financially after disasters and construction defects. Mr. Dicks has represented thousands of homeowners and HOA clients, successfully recovering millions of dollars on their behalf. This extensive experience gives him unique insight into the challenges faced by property owners—insight he now leverages to assist Los Angeles fire victims with navigating complex insurance claims and rebuilding their lives.
-                </p>
-                
-                <h3>Background and Expertise</h3>
-                <p>
-                  Michael Dicks earned his law degree cum laude from California Western School of Law in 1989 and received his undergraduate degree from San Diego State University in 1986. Coming from a family of lawyers, he embarked on his legal career well-prepared and is licensed in both California and Arizona. Mr. Dicks initially focused his practice on construction defect litigation, dedicating himself exclusively to representing plaintiff homeowner associations in disputes with developers and insurers. Through this work, he became an authority on all aspects of construction deficiencies and failures in developments across Southern California. His mastery of HOA and real estate law naturally extends to insurance claim advocacy—he is adept at holding insurance companies accountable and ensuring policyholders receive the full compensation they are due after catastrophic losses. As a Senior Trial Attorney at Hoffman & Forde, a leading Southern California law firm, Mr. Dicks now applies his expertise to a broad range of cases, from HOA insurance battles to personal injury claims.
-                </p>
-                
-                <h3>Professional Highlights:</h3>
-                <ul>
-                  <li><strong>Extensive experience:</strong> Over three decades in practice, with a focus on real estate, HOA, and insurance-related litigation.</li>
-                  <li><strong>Proven results:</strong> Recovered substantial settlements for large homeowner communities (e.g., secured $7.27 million for a 399-unit condominium development and $6.3 million for a 423-unit condo association in California).</li>
-                  <li><strong>Insurance & HOA advocate:</strong> Has guided countless homeowners through insurance claims and legal disputes arising from property damage and losses, making him a valuable advocate for wildfire victims seeking fair payouts.</li>
-                  <li><strong>Senior role:</strong> Serves as a Senior Trial Attorney at Hoffman & Forde, leading complex litigation and mentoring other attorneys.</li>
-                </ul>
-                
-                <h3>Notable Cases and Achievements</h3>
-                <p>
-                  Throughout his career, Mr. Dicks has compiled an impressive record of verdicts and settlements for his clients. Notably, he has been instrumental in recovering multi-million dollar awards in cases involving construction defects and property loss. Some of his noteworthy case results include:
-                </p>
-                
-                <ul>
-                  <li><strong>Bella Vista HOA (Scottsdale, AZ):</strong> Achieved a $7.27 million settlement for a 399-unit condominium association against the developer.</li>
-                  <li><strong>Cantabria Shores HOA (Chandler, AZ):</strong> Won an $8.5 million settlement for a 126-townhouse community dealing with extensive construction defects.</li>
-                  <li><strong>Huntington Condo Association (CA):</strong> Secured a $6.3 million recovery for a 423-unit condominium community in Southern California.</li>
-                </ul>
-                
-                <p>
-                  These outcomes reflect Mr. Dicks' ability to handle large-scale litigation and negotiate effectively with insurers and opposing parties. Los Angeles fire victims can count on his proven track record of aggressive advocacy to help maximize their insurance recoveries.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
       {/* Attorney Profile: James N. Dicks */}
-      <section className="py-20 bg-gray-50" id="james-dicks">
+      <section className="py-20 bg-white" id="james-dicks">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-1">
@@ -222,7 +128,7 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Get Expert Legal Representation</h2>
             <p className="text-xl text-gray-100 mb-8">
-              Our experienced attorneys are ready to help you navigate your fire recovery claim and get the compensation you deserve.
+              Our experienced attorney is ready to help you navigate your fire recovery claim and get the compensation you deserve.
             </p>
             <Link 
               href="/contact" 

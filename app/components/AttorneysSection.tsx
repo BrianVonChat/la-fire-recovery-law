@@ -8,16 +8,6 @@ const AttorneysSection = () => {
   const attorneys = [
     {
       id: 1,
-      name: 'Michael Dicks',
-      title: 'Senior Trial Attorney, Hoffman & Forde',
-      image: 'https://firebasestorage.googleapis.com/v0/b/fire-protection-attorneys.firebasestorage.app/o/fire_recovery_attorney_mdicks.png?alt=media&token=9f6f5362-f96f-4e2b-b98f-df3dcbd21ec8',
-      specialties: ['Insurance Law', 'HOA Law', 'Property Damage'],
-      bio: 'Michael Dicks is a seasoned trial attorney with over 30 years of experience in civil litigation, specializing in insurance disputes, homeowners association (HOA) law, and property damage claims. He has represented thousands of homeowners and HOA clients, successfully recovering millions of dollars on their behalf.',
-      linkedin: '#',
-      objectPosition: 'center 40%',
-    },
-    {
-      id: 2,
       name: 'James N. Dicks',
       title: 'Founding Attorney, jD Law, P.C.',
       image: 'https://firebasestorage.googleapis.com/v0/b/fire-protection-attorneys.firebasestorage.app/o/fire_recovery_attorney_jdlaw.png?alt=media&token=0bb48ed1-9fa8-422a-99e5-4077465d85e9',
@@ -32,13 +22,13 @@ const AttorneysSection = () => {
     <section className="pt-8 pb-16 bg-gray-50 AttorneysSection">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Meet Our Attorneys</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Meet Our Attorney</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our experienced legal team is dedicated to helping you recover what you've lost in the recent Los Angeles fires.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-4xl mx-auto">
           {attorneys.map((attorney) => (
             <div key={attorney.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:flex-row">
               <div className="lg:w-1/2 relative h-72 md:h-80 lg:h-auto">
