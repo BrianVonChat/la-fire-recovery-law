@@ -14,6 +14,26 @@ const TEMPLATE_IDS = {
   DEADLINE: 'template_njoneu9'
 };
 
+// Get notification recipients from environment variable or use default
+const getNotificationRecipients = (): string[] => {
+  const defaultRecipient = 'info@lafirerecoverylaw.com';
+  const additionalRecipients = process.env.NEXT_PUBLIC_NOTIFICATION_EMAILS || '';
+  
+  // If no additional recipients are defined, return the default
+  if (!additionalRecipients) {
+    return [defaultRecipient];
+  }
+  
+  // Parse the comma-separated list of emails
+  const allRecipients = [
+    defaultRecipient,
+    ...additionalRecipients.split(',').map(email => email.trim())
+  ];
+  
+  // Remove duplicates and return
+  return [...new Set(allRecipients)];
+};
+
 // Send notification email with appropriate template
 const sendNotificationEmail = async (templateParams: Record<string, unknown>) => {
   initEmailJs();
@@ -34,6 +54,9 @@ const sendNotificationEmail = async (templateParams: Record<string, unknown>) =>
       }
     }
     
+    // Get the list of notification recipients
+    const recipients = getNotificationRecipients();
+    
     // Prepare common parameters for all templates
     const commonParams = {
       submission_date: new Date().toLocaleDateString(),
@@ -41,13 +64,15 @@ const sendNotificationEmail = async (templateParams: Record<string, unknown>) =>
       current_year: new Date().getFullYear(),
       company_name: 'LA Fire Recovery Law',
       company_address: 'Los Angeles, CA',
-      reply_email: 'info@lafirerecoverylaw.com'
+      reply_email: 'info@lafirerecoverylaw.com',
+      to_emails: recipients.join(',') // Add all recipients
     };
     
     console.log('Sending email using EmailJS with:');
     console.log('- Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
     console.log('- Template ID:', templateId);
     console.log('- Form Type:', templateParams.form_type);
+    console.log('- Recipients:', recipients);
     
     const response = await emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
