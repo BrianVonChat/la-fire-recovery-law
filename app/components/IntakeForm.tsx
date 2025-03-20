@@ -7,6 +7,7 @@ import { useSearchParams } from 'next/navigation';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../utils/firebase';
 import { sendNotificationEmail } from '../utils/emailjs';
+import { saveServiceForm } from '../utils/formService';
 
 type FormData = {
   // Step 1: Personal Information
@@ -132,41 +133,32 @@ const IntakeForm = () => {
     setIsSubmitting(true);
     
     try {
-      console.log('Attempting to save detailed intake form data:', data);
+      console.log('Submitting detailed intake form:', data);
       
-      // Add timestamp
-      const submissionData = {
-        ...data,
-        createdAt: serverTimestamp(),
-        formType: 'detailedIntake'
-      };
-      
-      // Save to Firestore
-      console.log('Saving to Firestore collection "formSubmissions"...');
-      const docRef = await addDoc(collection(db, 'formSubmissions'), submissionData);
-      console.log('Successfully saved to Firestore with ID:', docRef.id);
-      
-      // Send email notification
-      console.log('Attempting to send email notification...');
-      try {
-        const emailParams = {
-          form_type: 'Detailed Intake Form',
+      // Save to Firestore and send notification email using the service form function
+      const docRef = await saveServiceForm(
+        {
           name: data.fullName,
           email: data.email,
           phone: data.phone,
-          fire_location: data.fireLocation || 'Not specified',
-          date_of_loss: data.dateOfLoss || 'Not specified',
-          submission_id: docRef.id
-        };
-        console.log('Email parameters:', emailParams);
-        
-        const emailResult = await sendNotificationEmail(emailParams);
-        console.log('Email notification sent successfully:', emailResult);
-      } catch (emailError) {
-        console.error('Failed to send email notification:', emailError);
-        // Continue execution even if email fails
-      }
-      
+          fireLocation: data.fireLocation || 'Not specified',
+          message: `
+Loss Date: ${data.dateOfLoss || 'Not specified'}
+Property Type: ${data.propertyType || 'Not specified'}
+Loss Types: ${data.lossTypes?.join(', ') || 'Not specified'}
+Insurance Company: ${data.insuranceCompany || 'Not specified'}
+Policy Number: ${data.policyNumber || 'Not specified'}
+Claim Filed: ${data.claimFiled || 'Not specified'}
+Claim Status: ${data.claimStatus || 'Not specified'}
+Injury Description: ${data.injuryDescription || 'None'}
+Business Loss Description: ${data.businessLossDescription || 'None'}
+Additional Info: ${data.additionalInfo || 'None'}
+          `,
+          lossType: data.lossTypes ? data.lossTypes.join(', ') : 'Not specified'
+        },
+        'Detailed Intake Form'
+      );
+      console.log('Form submitted successfully with ID:', docRef);
       setIsComplete(true);
       
       // Reset form after successful submission
