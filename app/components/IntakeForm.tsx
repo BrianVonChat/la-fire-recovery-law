@@ -112,8 +112,21 @@ const IntakeForm = () => {
     saveProgress();
     
     if (currentStep < 4) {
+      // Store the current scroll position
+      const formElement = document.getElementById('intake-form-container');
+      const currentPosition = formElement ? formElement.getBoundingClientRect().top + window.scrollY : null;
+      
       setCurrentStep(currentStep + 1);
-      window.scrollTo(0, 0);
+      
+      // Maintain scroll position after state update
+      if (currentPosition) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: currentPosition,
+            behavior: 'auto'
+          });
+        }, 0);
+      }
     } else {
       // Final step, submit the form
       await handleSubmit(onSubmit)();
@@ -124,8 +137,21 @@ const IntakeForm = () => {
     saveProgress();
     
     if (currentStep > 1) {
+      // Store the current scroll position
+      const formElement = document.getElementById('intake-form-container');
+      const currentPosition = formElement ? formElement.getBoundingClientRect().top + window.scrollY : null;
+      
       setCurrentStep(currentStep - 1);
-      window.scrollTo(0, 0);
+      
+      // Maintain scroll position after state update
+      if (currentPosition) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: currentPosition,
+            behavior: 'auto'
+          });
+        }, 0);
+      }
     }
   };
 
@@ -527,7 +553,7 @@ Additional Info: ${data.additionalInfo || 'None'}
   
   if (isComplete) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div id="intake-form-container" className="bg-white rounded-lg shadow-lg p-8">
         <div className="text-center py-8">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <FaCheck className="h-8 w-8 text-green-500" />
@@ -548,7 +574,7 @@ Additional Info: ${data.additionalInfo || 'None'}
   }
   
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div id="intake-form-container" className="bg-white rounded-lg shadow-lg p-8">
       <div className="mb-8">
         <div className="relative pt-1">
           <div className="flex mb-2 items-center justify-between">
