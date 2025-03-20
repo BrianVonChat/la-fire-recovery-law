@@ -14,13 +14,49 @@ type FormData = {
   lossType: string[];
 };
 
-const ContactForm = () => {
+// Props for ContactForm component to know the context/service type it's being used in
+interface ContactFormProps {
+  serviceType?: string;
+}
+
+const ContactForm = ({ serviceType }: ContactFormProps = {}) => {
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<FormData>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [formContext, setFormContext] = useState<string>('');
+  
+  // Set the form context based on page URL and service type
+  useEffect(() => {
+    // Get the page path and detailed info
+    if (typeof window !== 'undefined') {
+      const pathname = window.location.pathname;
+      let detectedContext = 'General Contact';
+      
+      // Extract context from pathname
+      if (pathname.includes('/services/')) {
+        const service = pathname.split('/services/')[1];
+        detectedContext = `Service - ${service.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}`;
+      } else if (pathname.includes('/fires/')) {
+        const fire = pathname.split('/fires/')[1];
+        detectedContext = `Fire - ${fire.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}`;
+      } else if (pathname.includes('/contact')) {
+        detectedContext = 'Contact Page';
+      } else if (serviceType) {
+        detectedContext = `Service - ${serviceType}`;
+      } else if (pathname !== '/') {
+        // Get the page name from pathname
+        const pageName = pathname.split('/').pop() || '';
+        detectedContext = `Page - ${pageName.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}`;
+      } else {
+        detectedContext = 'Home Page';
+      }
+      
+      setFormContext(detectedContext);
+    }
+  }, [serviceType]);
   
   // Reset copy success status after 2 seconds
   useEffect(() => {
@@ -42,8 +78,14 @@ const ContactForm = () => {
     setSubmitError('');
     
     try {
+      // Add form context to the submission
+      const contextData: ContactFormData = {
+        ...data as ContactFormData,
+        formContext
+      };
+      
       // Save form data to Firebase and send notification email
-      await saveContactForm(data as ContactFormData);
+      await saveContactForm(contextData);
       
       setSubmitSuccess(true);
       reset();

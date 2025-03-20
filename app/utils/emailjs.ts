@@ -34,6 +34,16 @@ const sendNotificationEmail = async (templateParams: Record<string, unknown>) =>
       }
     }
     
+    // Prepare common parameters for all templates
+    const commonParams = {
+      submission_date: new Date().toLocaleDateString(),
+      submission_time: new Date().toLocaleTimeString(),
+      current_year: new Date().getFullYear(),
+      company_name: 'LA Fire Recovery Law',
+      company_address: 'Los Angeles, CA',
+      reply_email: 'info@lafirerecoverylaw.com'
+    };
+    
     console.log('Sending email using EmailJS with:');
     console.log('- Service ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
     console.log('- Template ID:', templateId);
@@ -44,9 +54,7 @@ const sendNotificationEmail = async (templateParams: Record<string, unknown>) =>
       templateId,
       {
         ...templateParams,
-        submission_date: new Date().toLocaleDateString(),
-        submission_time: new Date().toLocaleTimeString(),
-        current_year: new Date().getFullYear()
+        ...commonParams
       }
     );
     console.log('EmailJS response:', response);

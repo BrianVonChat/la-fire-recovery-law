@@ -359,7 +359,7 @@ export default function FireInsuranceClaimsPage() {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <ContactForm />
+            <ContactForm serviceType="Fire Insurance Claims" />
           </div>
         </div>
       </section>

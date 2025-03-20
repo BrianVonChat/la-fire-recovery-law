@@ -2,6 +2,19 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase';
 import { sendNotificationEmail } from './emailjs';
 
+// Helper function to get the current page path
+const getFormOrigin = (): string => {
+  if (typeof window !== 'undefined') {
+    // Get the full URL
+    const fullPath = window.location.href;
+    // Extract pathname
+    const pathname = window.location.pathname;
+    
+    return `${pathname} (${fullPath})`;
+  }
+  return 'Unknown origin';
+};
+
 // ContactForm data type
 export type ContactFormData = {
   name: string;
@@ -10,6 +23,7 @@ export type ContactFormData = {
   fireLocation: string;
   message: string;
   lossType?: string;
+  formContext?: string; // Where in the site the form was submitted from
 };
 
 // QuickIntakeForm data type
@@ -23,11 +37,15 @@ export type QuickIntakeFormData = {
 export const saveContactForm = async (formData: ContactFormData) => {
   console.log('Attempting to save contact form:', formData);
   try {
+    // Get form origin
+    const formOrigin = getFormOrigin();
+    
     // Add a timestamp to the data
     const dataWithTimestamp = {
       ...formData,
       createdAt: serverTimestamp(),
-      formType: 'Main Contact Form'
+      formType: 'Main Contact Form',
+      formOrigin
     };
     
     // Save to Firestore
@@ -41,9 +59,12 @@ export const saveContactForm = async (formData: ContactFormData) => {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        fire_location: formData.fireLocation,
-        message: formData.message,
-        loss_type: formData.lossType || 'Not specified'
+        fire_location: formData.fireLocation || 'Not specified',
+        message: formData.message || 'No message provided',
+        loss_type: formData.lossType || 'Not specified',
+        form_context: formData.formContext || 'Not specified',
+        form_origin: formOrigin,
+        submission_id: docRef.id
       });
       console.log('Email notification sent successfully');
     } catch (emailError) {
@@ -62,11 +83,15 @@ export const saveContactForm = async (formData: ContactFormData) => {
 export const saveQuickIntakeForm = async (formData: QuickIntakeFormData) => {
   console.log('Attempting to save quick intake form:', formData);
   try {
+    // Get form origin
+    const formOrigin = getFormOrigin();
+    
     // Add a timestamp to the data
     const dataWithTimestamp = {
       ...formData,
       createdAt: serverTimestamp(),
-      formType: 'Quick Intake Form'
+      formType: 'Quick Intake Form',
+      formOrigin
     };
     
     // Save to Firestore
@@ -79,7 +104,9 @@ export const saveQuickIntakeForm = async (formData: QuickIntakeFormData) => {
         form_type: 'Quick Intake Form',
         name: formData.name,
         email: formData.email,
-        affected_by_fire: formData.affectedByFire ? 'Yes' : 'No'
+        affected_by_fire: formData.affectedByFire ? 'Yes' : 'No',
+        form_origin: formOrigin,
+        submission_id: docRef.id
       });
       console.log('Email notification sent successfully for quick intake');
     } catch (emailError) {
@@ -98,12 +125,16 @@ export const saveQuickIntakeForm = async (formData: QuickIntakeFormData) => {
 export const saveServiceForm = async (formData: ContactFormData, serviceType: string) => {
   console.log('Attempting to save service form:', formData, 'Service:', serviceType);
   try {
+    // Get form origin
+    const formOrigin = getFormOrigin();
+    
     // Add a timestamp and service type to the data
     const dataWithTimestamp = {
       ...formData,
       createdAt: serverTimestamp(),
       formType: `Service Form - ${serviceType}`,
-      serviceType
+      serviceType,
+      formOrigin
     };
     
     // Save to Firestore
@@ -117,10 +148,12 @@ export const saveServiceForm = async (formData: ContactFormData, serviceType: st
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        fire_location: formData.fireLocation,
-        message: formData.message,
+        fire_location: formData.fireLocation || 'Not specified',
+        message: formData.message || 'No message provided',
         loss_type: formData.lossType || 'Not specified',
-        service_type: serviceType
+        service_type: serviceType,
+        form_origin: formOrigin,
+        submission_id: docRef.id
       });
       console.log('Email notification sent successfully for service form');
     } catch (emailError) {
@@ -139,12 +172,16 @@ export const saveServiceForm = async (formData: ContactFormData, serviceType: st
 export const saveDeadlineForm = async (formData: ContactFormData, deadlineType: string) => {
   console.log('Attempting to save deadline form:', formData, 'Deadline:', deadlineType);
   try {
+    // Get form origin
+    const formOrigin = getFormOrigin();
+    
     // Add a timestamp and deadline type to the data
     const dataWithTimestamp = {
       ...formData,
       createdAt: serverTimestamp(),
       formType: `Deadline Form - ${deadlineType}`,
-      deadlineType
+      deadlineType,
+      formOrigin
     };
     
     // Save to Firestore
@@ -158,10 +195,12 @@ export const saveDeadlineForm = async (formData: ContactFormData, deadlineType: 
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        fire_location: formData.fireLocation,
-        message: formData.message,
+        fire_location: formData.fireLocation || 'Not specified',
+        message: formData.message || 'No message provided',
         loss_type: formData.lossType || 'Not specified',
-        deadline_type: deadlineType
+        deadline_type: deadlineType,
+        form_origin: formOrigin,
+        submission_id: docRef.id
       });
       console.log('Email notification sent successfully for deadline form');
     } catch (emailError) {
