@@ -56,7 +56,7 @@ const IntakeForm = () => {
   const fromQuickForm = searchParams?.get('fromQuickForm') === 'true';
   
   const { register, handleSubmit, formState: { errors, isValid }, getValues, reset, trigger, setValue } = useForm<FormData>({
-    mode: 'onChange',
+    mode: 'onSubmit',
     defaultValues: formData,
   });
   
@@ -153,6 +153,9 @@ const IntakeForm = () => {
   };
 
   const onSubmit = async (data: FormData) => {
+    console.log('Form submission triggered with data:', data);
+    console.log('Current step at submission time:', currentStep);
+    
     setIsSubmitting(true);
     
     try {
@@ -595,7 +598,12 @@ Additional Info: ${data.additionalInfo || 'None'}
         </div>
       </div>
       
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form 
+        onSubmit={(e) => {
+          console.log('Native form submit event triggered');
+          handleSubmit(onSubmit)(e);
+        }}
+      >
         {renderStep()}
         
         <div className="mt-8 flex flex-wrap justify-between items-center">
@@ -633,7 +641,13 @@ Additional Info: ${data.additionalInfo || 'None'}
               </button>
             ) : (
               <button
-                type="submit"
+                type="button"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  console.log('Manual submit button clicked');
+                  // Only submit if user explicitly clicks the button
+                  await handleSubmit(onSubmit)();
+                }}
                 className="btn btn-primary"
                 disabled={isSubmitting}
               >
