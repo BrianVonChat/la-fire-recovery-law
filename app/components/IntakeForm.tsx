@@ -111,7 +111,7 @@ const IntakeForm = () => {
   const nextStep = async () => {
     saveProgress();
     
-    if (currentStep < 4) {
+    if (currentStep < totalSteps) {
       // Store the current scroll position
       const formElement = document.getElementById('intake-form-container');
       const currentPosition = formElement ? formElement.getBoundingClientRect().top + window.scrollY : null;
@@ -127,9 +127,6 @@ const IntakeForm = () => {
           });
         }, 0);
       }
-    } else {
-      // Final step, submit the form
-      await handleSubmit(onSubmit)();
     }
   };
 
@@ -630,7 +627,6 @@ Additional Info: ${data.additionalInfo || 'None'}
                 type="button"
                 onClick={nextStep}
                 className="btn btn-primary"
-                disabled={!errors}
               >
                 Next
                 <FaArrowRight className="ml-2" />
@@ -639,7 +635,7 @@ Additional Info: ${data.additionalInfo || 'None'}
               <button
                 type="submit"
                 className="btn btn-primary"
-                disabled={isSubmitting || !errors}
+                disabled={isSubmitting}
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
